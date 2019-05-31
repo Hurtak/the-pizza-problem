@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import "./app.css";
+import "./styles.css";
 
 type Actions =
   | {
