@@ -27,82 +27,84 @@ export const App: React.FC = () => {
       <p>Pizza pizza pizza man</p>
 
       <table>
-        <tr>
-          <td>Diameter</td>
-          <td>Price</td>
-          <td>Price cm2</td>
-          <td>%</td>
-        </tr>
-        <tr>
-          <td>
-            <InputPizzaDiameter
-              value={state.pizza1Diameter}
-              onChange={e =>
-                dispatch({
-                  type: "SET_PIZZA_1_DIAMETER",
-                  data: e.target.value
-                })
-              }
-            />
-            cm
-          </td>
-          <td>
-            <InputPizzaPrice
-              value={state.pizza1Price}
-              onChange={e =>
-                dispatch({
-                  type: "SET_PIZZA_1_PRICE",
-                  data: e.target.value
-                })
-              }
-            />
-            moneyz
-          </td>
-          <td>1 moneyz for {pricePer1MoneyPizza1.toFixed(2)} cm2</td>
-          <td
-            style={{
-              color: percentage < 0 ? "green" : "red"
-            }}
-          >
-            {Math.abs(percentage).toFixed(2)}%{" "}
-            {percentage < 0 ? <>less expensive</> : <>more expensive</>}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <InputPizzaDiameter
-              value={state.pizza2Diameter}
-              onChange={e =>
-                dispatch({
-                  type: "SET_PIZZA_2_DIAMETER",
-                  data: e.target.value
-                })
-              }
-            />
-            cm
-          </td>
-          <td>
-            <InputPizzaPrice
-              value={state.pizza2Price}
-              onChange={e =>
-                dispatch({
-                  type: "SET_PIZZA_2_PRICE",
-                  data: e.target.value
-                })
-              }
-            />
-            moneyz
-          </td>
-          <td>1 moneyz for {pricePer1MoneyPizza2.toFixed(2)} cm2</td>
-          <td
-            style={{
-              color: percentage > 0 ? "green" : "red"
-            }}
-          >
-            {Math.abs(percentage).toFixed(2)}%{" "}
-            {percentage > 0 ? <>less expensive</> : <>more expensive</>}
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Diameter</td>
+            <td>Price</td>
+            <td>Price cm2</td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td>
+              <InputPizzaDiameter
+                value={state.pizza1Diameter}
+                onChange={e =>
+                  dispatch({
+                    type: "SET_PIZZA_1_DIAMETER",
+                    data: e.target.value
+                  })
+                }
+              />
+              cm
+            </td>
+            <td>
+              <InputPizzaPrice
+                value={state.pizza1Price}
+                onChange={e =>
+                  dispatch({
+                    type: "SET_PIZZA_1_PRICE",
+                    data: e.target.value
+                  })
+                }
+              />
+              moneyz
+            </td>
+            <td>1 moneyz for {pricePer1MoneyPizza1.toFixed(2)} cm2</td>
+            <td
+              style={{
+                color: percentage < 0 ? "green" : "red"
+              }}
+            >
+              {Math.abs(percentage).toFixed(2)}%{" "}
+              {percentage < 0 ? <>less expensive</> : <>more expensive</>}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <InputPizzaDiameter
+                value={state.pizza2Diameter}
+                onChange={e =>
+                  dispatch({
+                    type: "SET_PIZZA_2_DIAMETER",
+                    data: e.target.value
+                  })
+                }
+              />
+              cm
+            </td>
+            <td>
+              <InputPizzaPrice
+                value={state.pizza2Price}
+                onChange={e =>
+                  dispatch({
+                    type: "SET_PIZZA_2_PRICE",
+                    data: e.target.value
+                  })
+                }
+              />
+              moneyz
+            </td>
+            <td>1 moneyz for {pricePer1MoneyPizza2.toFixed(2)} cm2</td>
+            <td
+              style={{
+                color: percentage > 0 ? "green" : "red"
+              }}
+            >
+              {Math.abs(percentage).toFixed(2)}%{" "}
+              {percentage > 0 ? <>less expensive</> : <>more expensive</>}
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
