@@ -1,70 +1,7 @@
 import React, { useReducer } from "react";
-import "./styles.css";
-
-type Actions =
-  | {
-      type: "SET_PIZZA_1_DIAMETER";
-      data: string;
-    }
-  | {
-      type: "SET_PIZZA_2_DIAMETER";
-      data: string;
-    }
-  | {
-      type: "SET_PIZZA_1_PRICE";
-      data: string;
-    }
-  | {
-      type: "SET_PIZZA_2_PRICE";
-      data: string;
-    };
-
-type State = {
-  pizza1Diameter: string;
-  pizza2Diameter: string;
-
-  pizza1Price: string;
-  pizza2Price: string;
-};
-
-const initialState: State = {
-  pizza1Diameter: "32",
-  pizza2Diameter: "45",
-
-  pizza1Price: "149",
-  pizza2Price: "239"
-};
-
-function stateReducer(state: State, action: Actions): State {
-  switch (action.type) {
-    case "SET_PIZZA_1_DIAMETER":
-      return {
-        ...state,
-        pizza1Diameter: action.data
-      };
-
-    case "SET_PIZZA_2_DIAMETER":
-      return {
-        ...state,
-        pizza2Diameter: action.data
-      };
-
-    case "SET_PIZZA_1_PRICE":
-      return {
-        ...state,
-        pizza1Price: action.data
-      };
-
-    case "SET_PIZZA_2_PRICE":
-      return {
-        ...state,
-        pizza2Price: action.data
-      };
-
-    default:
-      throw new Error("Unknown action");
-  }
-}
+import { stateReducer, initialState } from "../state/state";
+import { Title, InputPizzaDiameter, InputPizzaPrice } from "../components";
+import "./app.css";
 
 function getPricePer1Money(diameter: number, price: number) {
   return (Math.PI * (diameter / 2) ** 2) / price;
@@ -86,7 +23,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Pizza man</h1>
+      <Title>Pizza man</Title>
       <p>Pizza pizza pizza man</p>
 
       <table>
@@ -98,11 +35,7 @@ export const App: React.FC = () => {
         </tr>
         <tr>
           <td>
-            <input
-              type="number"
-              step={1}
-              min={10}
-              max={100}
+            <InputPizzaDiameter
               value={state.pizza1Diameter}
               onChange={e =>
                 dispatch({
@@ -114,11 +47,7 @@ export const App: React.FC = () => {
             cm
           </td>
           <td>
-            <input
-              type="number"
-              step={1}
-              min={1}
-              max={100000}
+            <InputPizzaPrice
               value={state.pizza1Price}
               onChange={e =>
                 dispatch({
@@ -141,11 +70,7 @@ export const App: React.FC = () => {
         </tr>
         <tr>
           <td>
-            <input
-              type="number"
-              step={1}
-              min={10}
-              max={100}
+            <InputPizzaDiameter
               value={state.pizza2Diameter}
               onChange={e =>
                 dispatch({
@@ -157,11 +82,7 @@ export const App: React.FC = () => {
             cm
           </td>
           <td>
-            <input
-              type="number"
-              step={1}
-              min={10}
-              max={100000}
+            <InputPizzaPrice
               value={state.pizza2Price}
               onChange={e =>
                 dispatch({
