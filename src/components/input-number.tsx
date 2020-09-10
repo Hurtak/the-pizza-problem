@@ -1,6 +1,10 @@
 import * as React from "react";
 import styled from "styled-components/macro";
 
+const Input = styled.input({
+  padding: "0.5em",
+});
+
 export const InputNumber: React.FC<{
   value: string;
   min: number;
@@ -18,7 +22,3 @@ export const InputNumber: React.FC<{
     onChange={onChange}
   />
 );
-
-const Input = styled.input({
-  padding: "0.5em",
-});
