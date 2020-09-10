@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CSSProperties } from "styled-components";
 import styled from "styled-components/macro";
+import * as s from "../styles";
 
 type TextType = "title" | "paragraph" | "text";
 
@@ -8,6 +9,7 @@ const sharedStyles = {
   fontFamily: `-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
   margin: 0,
   lineHeight: 1.2,
+  color: s.colors.black,
 };
 
 const StyledTitle = styled.h1({
@@ -45,8 +47,8 @@ export const Text: React.FC<
   {
     type?: TextType;
   } & StyledComponentsProps
-> = ({ type = "text", as, children }) => {
+> = ({ type = "text", children, ...styleComponentProps }) => {
   const Component = textTypeToComponent(type);
 
-  return <Component as={as}>{children}</Component>;
+  return <Component {...styleComponentProps}>{children}</Component>;
 };

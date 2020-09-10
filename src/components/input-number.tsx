@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components/macro";
+import * as s from "../styles";
 
 const Input = styled.input({
-  padding: "0.5em",
+  padding: `${s.grid(0.5)} ${s.grid(1)}`,
 });
 
 export const InputNumber: React.FC<{
