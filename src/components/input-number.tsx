@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components/macro";
 
 export const InputNumber: React.FC<{
@@ -9,6 +9,7 @@ export const InputNumber: React.FC<{
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = ({ value, min, max, step, onChange }) => (
   <Input
+    //
     type="number"
     min={min}
     max={max}
