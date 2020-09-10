@@ -81,11 +81,6 @@ export const App: React.FC = () => {
             </span>
           </TableCell>
         </TableRow>
-        <TableRow>
-          <TableCell>xx</TableCell>
-          <TableCell>xx</TableCell>
-          <TableCell>xx</TableCell>
-        </TableRow>
       </Table>
     </Layout>
   );

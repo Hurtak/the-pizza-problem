@@ -4,5 +4,4 @@
 
 ## TODO
 
-- get rid of global styles
-- box calculation
+- box/packaging/delivery calculation
