@@ -31,7 +31,6 @@ export const App: React.FC = () => {
           <tr>
             <td>Diameter</td>
             <td>Price</td>
-            <td>Price cm2</td>
             <td>%</td>
           </tr>
           <tr>
@@ -59,7 +58,6 @@ export const App: React.FC = () => {
               />
               moneyz
             </td>
-            <td>1 moneyz for {pricePer1MoneyPizza1.toFixed(2)} cm2</td>
             <td
               style={{
                 color: percentage < 0 ? "green" : "red",
@@ -94,7 +92,6 @@ export const App: React.FC = () => {
               />
               moneyz
             </td>
-            <td>1 moneyz for {pricePer1MoneyPizza2.toFixed(2)} cm2</td>
             <td
               style={{
                 color: percentage > 0 ? "green" : "red",
