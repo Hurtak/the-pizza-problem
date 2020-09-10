@@ -1,7 +1,6 @@
 import React, { useReducer } from "react";
 import { stateReducer, initialState } from "../state/state";
 import { InputPizzaDiameter, InputPizzaPrice, Layout, Text } from "../components";
-import "./globals.css";
 
 const getPricePer1Money = (diameter: number, price: number) => (Math.PI * (diameter / 2) ** 2) / price;
 
