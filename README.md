@@ -1,5 +1,9 @@
 # PIZZA MAN
 
+- https://pizza-man.netlify.app/
+
 ## TODO
 
-- krabice
+- table component
+  - get rid of global styles
+- box calculation
