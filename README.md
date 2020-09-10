@@ -4,6 +4,5 @@
 
 ## TODO
 
-- table component
-  - get rid of global styles
+- get rid of global styles
 - box calculation

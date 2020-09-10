@@ -1,5 +1,6 @@
-export { InputPizzaDiameter } from "./input-pizza-diameter";
-export { InputPizzaPrice } from "./input-pizza-price";
-export { Layout } from "./layout";
-export { Spacer } from "./spacer";
-export { Text } from "./text";
+export * from "./input-pizza-diameter";
+export * from "./input-pizza-price";
+export * from "./layout";
+export * from "./spacer";
+export * from "./table";
+export * from "./text";
