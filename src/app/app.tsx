@@ -1,40 +1,32 @@
 import React, { useReducer } from "react";
 import { stateReducer, initialState } from "../state/state";
-import { Title, InputPizzaDiameter, InputPizzaPrice } from "../components";
+import { Text, InputPizzaDiameter, InputPizzaPrice } from "../components";
 import "./app.css";
 
-function getPricePer1Money(diameter: number, price: number) {
-  return (Math.PI * (diameter / 2) ** 2) / price;
-}
+const getPricePer1Money = (diameter: number, price: number) => (Math.PI * (diameter / 2) ** 2) / price;
 
 export const App: React.FC = () => {
   const [state, dispatch] = useReducer(stateReducer, initialState);
 
-  const pricePer1MoneyPizza1 = getPricePer1Money(
-    Number(state.pizza1Diameter),
-    Number(state.pizza1Price)
-  );
-  const pricePer1MoneyPizza2 = getPricePer1Money(
-    Number(state.pizza2Diameter),
-    Number(state.pizza2Price)
-  );
+  const pricePer1MoneyPizza1 = getPricePer1Money(Number(state.pizza1Diameter), Number(state.pizza1Price));
+  const pricePer1MoneyPizza2 = getPricePer1Money(Number(state.pizza2Diameter), Number(state.pizza2Price));
 
   const percentage = (1 - pricePer1MoneyPizza1 / pricePer1MoneyPizza2) * 100;
 
   return (
     <div className="App">
-      <Title>Pizza man</Title>
-      <p>Pizza pizza pizza man</p>
+      <Text type="title">Pizza man</Text>
+      <Text type="paragraph">Pizza pizza pizza man</Text>
 
       <table>
         <tbody>
           <tr>
-            <td>Diameter</td>
-            <td>Price</td>
-            <td>%</td>
+            <Text as="td">Diameter</Text>
+            <Text as="td">Price</Text>
+            <Text as="td">%</Text>
           </tr>
           <tr>
-            <td>
+            <Text as="td">
               <InputPizzaDiameter
                 value={state.pizza1Diameter}
                 onChange={(e) =>
@@ -45,8 +37,8 @@ export const App: React.FC = () => {
                 }
               />
               cm
-            </td>
-            <td>
+            </Text>
+            <Text as="td">
               <InputPizzaPrice
                 value={state.pizza1Price}
                 onChange={(e) =>
@@ -57,18 +49,18 @@ export const App: React.FC = () => {
                 }
               />
               moneyz
-            </td>
-            <td
+            </Text>
+            <Text
+              as="td"
               style={{
                 color: percentage < 0 ? "green" : "red",
               }}
             >
-              {Math.abs(percentage).toFixed(2)}%{" "}
-              {percentage < 0 ? <>less expensive</> : <>more expensive</>}
-            </td>
+              {Math.abs(percentage).toFixed(2)}% {percentage < 0 ? <>less expensive</> : <>more expensive</>}
+            </Text>
           </tr>
           <tr>
-            <td>
+            <Text as="td">
               <InputPizzaDiameter
                 value={state.pizza2Diameter}
                 onChange={(e) =>
@@ -79,8 +71,8 @@ export const App: React.FC = () => {
                 }
               />
               cm
-            </td>
-            <td>
+            </Text>
+            <Text as="td">
               <InputPizzaPrice
                 value={state.pizza2Price}
                 onChange={(e) =>
@@ -91,15 +83,15 @@ export const App: React.FC = () => {
                 }
               />
               moneyz
-            </td>
-            <td
+            </Text>
+            <Text
+              as="td"
               style={{
                 color: percentage > 0 ? "green" : "red",
               }}
             >
-              {Math.abs(percentage).toFixed(2)}%{" "}
-              {percentage > 0 ? <>less expensive</> : <>more expensive</>}
-            </td>
+              {Math.abs(percentage).toFixed(2)}% {percentage > 0 ? <>less expensive</> : <>more expensive</>}
+            </Text>
           </tr>
         </tbody>
       </table>
