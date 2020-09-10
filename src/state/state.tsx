@@ -29,7 +29,7 @@ export const initialState: State = {
   pizza2Diameter: "45",
 
   pizza1Price: "149",
-  pizza2Price: "239"
+  pizza2Price: "239",
 };
 
 export function stateReducer(state: State, action: Actions): State {
@@ -37,25 +37,25 @@ export function stateReducer(state: State, action: Actions): State {
     case "SET_PIZZA_1_DIAMETER":
       return {
         ...state,
-        pizza1Diameter: action.data
+        pizza1Diameter: action.data,
       };
 
     case "SET_PIZZA_2_DIAMETER":
       return {
         ...state,
-        pizza2Diameter: action.data
+        pizza2Diameter: action.data,
       };
 
     case "SET_PIZZA_1_PRICE":
       return {
         ...state,
-        pizza1Price: action.data
+        pizza1Price: action.data,
       };
 
     case "SET_PIZZA_2_PRICE":
       return {
         ...state,
-        pizza2Price: action.data
+        pizza2Price: action.data,
       };
 
     default:

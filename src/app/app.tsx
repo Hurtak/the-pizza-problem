@@ -38,10 +38,10 @@ export const App: React.FC = () => {
             <td>
               <InputPizzaDiameter
                 value={state.pizza1Diameter}
-                onChange={e =>
+                onChange={(e) =>
                   dispatch({
                     type: "SET_PIZZA_1_DIAMETER",
-                    data: e.target.value
+                    data: e.target.value,
                   })
                 }
               />
@@ -50,10 +50,10 @@ export const App: React.FC = () => {
             <td>
               <InputPizzaPrice
                 value={state.pizza1Price}
-                onChange={e =>
+                onChange={(e) =>
                   dispatch({
                     type: "SET_PIZZA_1_PRICE",
-                    data: e.target.value
+                    data: e.target.value,
                   })
                 }
               />
@@ -62,7 +62,7 @@ export const App: React.FC = () => {
             <td>1 moneyz for {pricePer1MoneyPizza1.toFixed(2)} cm2</td>
             <td
               style={{
-                color: percentage < 0 ? "green" : "red"
+                color: percentage < 0 ? "green" : "red",
               }}
             >
               {Math.abs(percentage).toFixed(2)}%{" "}
@@ -73,10 +73,10 @@ export const App: React.FC = () => {
             <td>
               <InputPizzaDiameter
                 value={state.pizza2Diameter}
-                onChange={e =>
+                onChange={(e) =>
                   dispatch({
                     type: "SET_PIZZA_2_DIAMETER",
-                    data: e.target.value
+                    data: e.target.value,
                   })
                 }
               />
@@ -85,10 +85,10 @@ export const App: React.FC = () => {
             <td>
               <InputPizzaPrice
                 value={state.pizza2Price}
-                onChange={e =>
+                onChange={(e) =>
                   dispatch({
                     type: "SET_PIZZA_2_PRICE",
-                    data: e.target.value
+                    data: e.target.value,
                   })
                 }
               />
@@ -97,7 +97,7 @@ export const App: React.FC = () => {
             <td>1 moneyz for {pricePer1MoneyPizza2.toFixed(2)} cm2</td>
             <td
               style={{
-                color: percentage > 0 ? "green" : "red"
+                color: percentage > 0 ? "green" : "red",
               }}
             >
               {Math.abs(percentage).toFixed(2)}%{" "}

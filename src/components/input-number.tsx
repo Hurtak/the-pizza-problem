@@ -19,5 +19,5 @@ export const InputNumber: React.FC<{
 );
 
 const Input = styled.input({
-  padding: "0.5em"
+  padding: "0.5em",
 });
