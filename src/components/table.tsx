@@ -43,8 +43,8 @@ export const Table: React.FC<{
     <StyledTable>
       <thead>
         <TableRow>
-          {props.headColumnsText.map((text) => (
-            <StyledTableCell as="th">
+          {props.headColumnsText.map((text, index) => (
+            <StyledTableCell as="th" key={`${text}_${index}`}>
               <Text>{text}</Text>
             </StyledTableCell>
           ))}
