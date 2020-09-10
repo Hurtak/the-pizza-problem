@@ -2,5 +2,4 @@
 
 ## TODO
 
-- okraje
 - krabice
