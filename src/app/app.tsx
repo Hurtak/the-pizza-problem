@@ -16,7 +16,7 @@ export const App: React.FC = () => {
     <Layout>
       <Text type="title">Pizza man</Text>
       <Spacer size={2} />
-      <Text type="paragraph">Pizza pizza pizza man</Text>
+      <Text type="paragraph">Pizza pizza pizza pizza</Text>
 
       <Table headColumnsText={["Diameter", "Price", "%"]}>
         <TableRow>
@@ -29,7 +29,7 @@ export const App: React.FC = () => {
                   data: e.target.value,
                 })
               }
-            />
+            />{" "}
             cm
           </TableCell>
           <TableCell>
@@ -41,7 +41,7 @@ export const App: React.FC = () => {
                   data: e.target.value,
                 })
               }
-            />
+            />{" "}
             moneyz
           </TableCell>
           <TableCell>
@@ -61,7 +61,7 @@ export const App: React.FC = () => {
                   data: e.target.value,
                 })
               }
-            />
+            />{" "}
             cm
           </TableCell>
           <TableCell>
@@ -73,7 +73,7 @@ export const App: React.FC = () => {
                   data: e.target.value,
                 })
               }
-            />
+            />{" "}
             moneyz
           </TableCell>
           <TableCell>
