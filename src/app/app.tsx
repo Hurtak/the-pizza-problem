@@ -46,7 +46,8 @@ export const App: React.FC = () => {
           </TableCell>
           <TableCell>
             <span style={{ color: percentage < 0 ? "green" : "red" }}>
-              {Math.abs(percentage).toFixed(2)}% {percentage < 0 ? <>less expensive</> : <>more expensive</>}
+              {Math.abs(percentage).toFixed(2)}% {percentage < 0 ? <>less expensive</> : <>more expensive</>} per cm
+              <sup>2</sup> of pizza
             </span>
           </TableCell>
         </TableRow>
@@ -77,7 +78,8 @@ export const App: React.FC = () => {
           </TableCell>
           <TableCell>
             <span style={{ color: percentage > 0 ? "green" : "red" }}>
-              {Math.abs(percentage).toFixed(2)}% {percentage > 0 ? <>less expensive</> : <>more expensive</>}
+              {Math.abs(percentage).toFixed(2)}% {percentage > 0 ? <>less expensive</> : <>more expensive</>} per cm
+              <sup>2</sup> of pizza
             </span>
           </TableCell>
         </TableRow>
