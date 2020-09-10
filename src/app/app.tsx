@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { stateReducer, initialState } from "../state/state";
-import { InputPizzaDiameter, InputPizzaPrice, Layout, Text } from "../components";
+import { InputPizzaDiameter, InputPizzaPrice, Layout, Text, Spacer } from "../components";
 
 const getPricePer1Money = (diameter: number, price: number) => (Math.PI * (diameter / 2) ** 2) / price;
 
@@ -15,6 +15,7 @@ export const App: React.FC = () => {
   return (
     <Layout>
       <Text type="title">Pizza man</Text>
+      <Spacer size={2} />
       <Text type="paragraph">Pizza pizza pizza man</Text>
 
       <table>
