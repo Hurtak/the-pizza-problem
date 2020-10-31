@@ -1,10 +1,4 @@
 import * as React from "react";
-import styled from "styled-components/macro";
-import * as s from "../styles";
-
-const Input = styled.input({
-  padding: `${s.grid(0.5)} ${s.grid(1)}`,
-});
 
 export const InputNumber: React.FC<{
   value: string;
@@ -13,7 +7,7 @@ export const InputNumber: React.FC<{
   step: number;
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = ({ value, min, max, step, onChange }) => (
-  <Input
+  <input
     //
     type="number"
     min={min}
