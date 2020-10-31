@@ -1,19 +1,18 @@
 import * as React from "react";
 
 export const InputNumber: React.FC<{
-  value: string;
+  value: number;
+  name: string;
+  error?: string;
   min: number;
   max: number;
   step: number;
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
-}> = ({ value, min, max, step, onChange }) => (
+}> = ({ error, ...restProps }) => (
   <input
     //
     type="number"
-    min={min}
-    max={max}
-    step={step}
-    value={value}
-    onChange={onChange}
+    className={error && "input-error"}
+    {...restProps}
   />
 );

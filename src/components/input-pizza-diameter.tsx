@@ -1,19 +1,21 @@
 import * as React from "react";
+import { model } from "../app/model";
 import { InputNumber } from "./input-number";
 
 export const InputPizzaDiameter: React.FC<{
-  value: string;
+  value: number;
+  name: string;
+  error?: string;
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
-}> = ({ value, onChange }) => (
+}> = (props) => (
   <label>
     Diameter{" "}
     <InputNumber
       //
-      min={10}
-      max={100}
+      {...props}
+      min={model.pizzaDiameter.min}
+      max={model.pizzaDiameter.max}
       step={1}
-      value={value}
-      onChange={onChange}
     />
   </label>
 );
