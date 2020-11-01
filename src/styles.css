@@ -6,3 +6,29 @@ input.input-error {
   border: 1px solid red;
   box-shadow: 0 0 2px 0.5px red;
 }
+
+footer {
+  border-top: 2px solid #2c8898;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+footer svg {
+  margin: 0 0.15rem 0 0.3rem;
+}
+
+footer p + p {
+  margin-top: 0.25rem;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+}

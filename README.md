@@ -9,4 +9,3 @@
   - header
   - result
   - show error messages
-  - footer

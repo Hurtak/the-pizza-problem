@@ -1,6 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { GoMarkGithub } from "react-icons/go";
+import { AiFillTwitterCircle } from "react-icons/ai";
 
 import { InputPizzaDiameter, InputPizzaPrice } from "../components";
 import { model } from "./model";
@@ -63,8 +65,8 @@ export const App: React.FC = () => {
 
   return (
     <>
-      <h1>Pizza man</h1>
-      <p>Pizza pizza pizza pizza</p>
+      {/* <h1>Pizza man</h1>
+      <p>Pizza pizza pizza pizza</p> */}
 
       <hr />
 
@@ -87,9 +89,20 @@ export const App: React.FC = () => {
       <h2>Extras (box, delivery...)</h2>
       {/* <InputPizzaPrice value={values.pizza2Price} onChange={(e) => {}} /> */}
 
-      <hr />
-
-      <footer>made by @hurtak github twitter</footer>
+      <footer>
+        <p>
+          By
+          <a href="https://twitter.com/PetrHurtak">
+            <AiFillTwitterCircle size={18} /> PetrHurtak
+          </a>
+        </p>
+        <p>
+          Code on
+          <a href="https://github.com/hurtak/pizza-man">
+            <GoMarkGithub size={18} /> GitHub
+          </a>
+        </p>
+      </footer>
     </>
   );
 };
