@@ -7,4 +7,8 @@ export const model = {
     min: 1,
     max: 1000000,
   },
+  extrasPrice: {
+    min: 0,
+    max: 1000000,
+  },
 };

@@ -6,6 +6,6 @@
 
 - box/packaging/delivery calculation
 - design
-  - header
   - result
   - show error messages
+  - maybe more header text?

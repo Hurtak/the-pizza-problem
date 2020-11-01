@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { GoMarkGithub } from "react-icons/go";
 import { AiFillTwitterCircle } from "react-icons/ai";
 
-import { InputPizzaDiameter, InputPizzaPrice } from "../components";
+import { Header, InputPizzaDiameter, InputPizzaPrice } from "../components";
 import { model } from "./model";
 
 const getPricePer1Money = (diameter: number, price: number) => (Math.PI * (diameter / 2) ** 2) / price;
@@ -14,6 +14,7 @@ type FormValues = {
   pizza2Diameter: number;
   pizza1Price: number;
   pizza2Price: number;
+  extrasPrice: number;
 };
 
 const validationSchema = Yup.object().shape<FormValues>({
@@ -35,6 +36,10 @@ const validationSchema = Yup.object().shape<FormValues>({
     .min(model.pizzaPrice.min, `Minimum ${model.pizzaPrice.min}`)
     .max(model.pizzaPrice.max, `Maximum ${model.pizzaPrice.max}`)
     .required("Required"),
+  extrasPrice: Yup.number()
+    .min(model.extrasPrice.min, `Minimum ${model.extrasPrice.min}`)
+    .max(model.extrasPrice.max, `Maximum ${model.extrasPrice.max}`)
+    .required("Required"),
 });
 
 export const App: React.FC = () => {
@@ -42,8 +47,11 @@ export const App: React.FC = () => {
     initialValues: {
       pizza1Diameter: 32,
       pizza2Diameter: 45,
+
       pizza1Price: 149,
       pizza2Price: 239,
+
+      extrasPrice: 0,
     } as FormValues,
     validationSchema,
     onSubmit: (values) => {
@@ -65,29 +73,28 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {/* <h1>Pizza man</h1>
-      <p>Pizza pizza pizza pizza</p> */}
+      <Header />
 
-      <hr />
+      <main>
+        <h2>Pizza smaller</h2>
+        <InputPizzaDiameter {...getSharedProps("pizza1Diameter")} />
+        <InputPizzaPrice {...getSharedProps("pizza1Price")} />
+        <span style={{ color: percentage < 0 ? "green" : "red" }}>
+          {Math.abs(percentage).toFixed(2)}% {percentage < 0 ? <>less expensive</> : <>more expensive</>} per cm
+          <sup>2</sup> of pizza
+        </span>
 
-      <h2>Pizza smaller</h2>
-      <InputPizzaDiameter {...getSharedProps("pizza1Diameter")} />
-      <InputPizzaPrice {...getSharedProps("pizza1Price")} />
-      <span style={{ color: percentage < 0 ? "green" : "red" }}>
-        {Math.abs(percentage).toFixed(2)}% {percentage < 0 ? <>less expensive</> : <>more expensive</>} per cm
-        <sup>2</sup> of pizza
-      </span>
+        <h2>Pizza bigger</h2>
+        <InputPizzaDiameter {...getSharedProps("pizza2Diameter")} />
+        <InputPizzaPrice {...getSharedProps("pizza2Price")} />
+        <span style={{ color: percentage > 0 ? "green" : "red" }}>
+          {Math.abs(percentage).toFixed(2)}% {percentage > 0 ? <>less expensive</> : <>more expensive</>} per cm
+          <sup>2</sup> of pizza
+        </span>
 
-      <h2>Pizza bigger</h2>
-      <InputPizzaDiameter {...getSharedProps("pizza2Diameter")} />
-      <InputPizzaPrice {...getSharedProps("pizza2Price")} />
-      <span style={{ color: percentage > 0 ? "green" : "red" }}>
-        {Math.abs(percentage).toFixed(2)}% {percentage > 0 ? <>less expensive</> : <>more expensive</>} per cm
-        <sup>2</sup> of pizza
-      </span>
-
-      <h2>Extras (box, delivery...)</h2>
-      {/* <InputPizzaPrice value={values.pizza2Price} onChange={(e) => {}} /> */}
+        <h2>Extras (box, delivery...)</h2>
+        <InputPizzaPrice {...getSharedProps("extrasPrice")} />
+      </main>
 
       <footer>
         <p>

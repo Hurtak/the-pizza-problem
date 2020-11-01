@@ -1,21 +1,20 @@
 import * as React from "react";
-import { model } from "../app/model";
+import { model } from "../../app/model";
 import { InputNumber } from "./input-number";
 
-export const InputPizzaPrice: React.FC<{
+export const InputPizzaDiameter: React.FC<{
   value: number;
   name: string;
   error?: string;
-
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = (props) => (
   <label>
-    Price{" "}
+    Diameter{" "}
     <InputNumber
       //
       {...props}
-      min={model.pizzaPrice.min}
-      max={model.pizzaPrice.max}
+      min={model.pizzaDiameter.min}
+      max={model.pizzaDiameter.max}
       step={1}
     />
   </label>
