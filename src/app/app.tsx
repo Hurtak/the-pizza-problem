@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { Footer, Header, InputPizzaDiameter, InputPizzaPrice } from "../components";
+import { Header, Result, Footer, InputPizzaDiameter, InputPizzaPrice } from "../components";
 import { getPercentage, model } from "./model";
 
 type FormValues = {
@@ -86,21 +86,13 @@ export const App: React.FC = () => {
         <InputPizzaDiameter {...getSharedProps("pizza1Diameter")} />
         <InputPizzaPrice {...getSharedProps("pizza1Price")} />
 
-        <span style={{ color: pizza1percentage < 0 ? "green" : "red" }}>
-          {Math.abs(pizza1percentage * 100).toFixed(0)}%{" "}
-          {pizza1percentage < 0 ? <>less expensive</> : <>more expensive</>} per cm
-          <sup>2</sup> of pizza
-        </span>
+        <Result percentage={pizza1percentage} />
 
         <h2>Pizza 2</h2>
         <InputPizzaDiameter {...getSharedProps("pizza2Diameter")} />
         <InputPizzaPrice {...getSharedProps("pizza2Price")} />
 
-        <span style={{ color: pizza2percentage < 0 ? "green" : "red" }}>
-          {Math.abs(pizza2percentage * 100).toFixed(0)}%{" "}
-          {pizza2percentage < 0 ? <>less expensive</> : <>more expensive</>} per cm
-          <sup>2</sup> of pizza
-        </span>
+        <Result percentage={pizza2percentage} />
 
         <h2>Extras (box, delivery...)</h2>
         <InputPizzaPrice {...getSharedProps("extrasPrice")} />

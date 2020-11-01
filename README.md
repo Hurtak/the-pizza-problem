@@ -6,7 +6,6 @@
 
 - box/packaging/delivery calculation
 - design
-  - price the same
-  - result
   - show error messages
+  - decide on layout
   - maybe more header text?

@@ -1,0 +1,12 @@
+.result {
+}
+
+.result.result-negative {
+  color: red;
+}
+.result.result-positive {
+  color: green;
+}
+.result.result-neutral {
+  color: blue;
+}
