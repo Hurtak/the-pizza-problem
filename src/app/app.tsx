@@ -1,10 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { GoMarkGithub } from "react-icons/go";
-import { AiFillTwitterCircle } from "react-icons/ai";
 
-import { Header, InputPizzaDiameter, InputPizzaPrice } from "../components";
+import { Footer, Header, InputPizzaDiameter, InputPizzaPrice } from "../components";
 import { model } from "./model";
 
 const getPricePer1Money = (diameter: number, price: number) => (Math.PI * (diameter / 2) ** 2) / price;
@@ -54,9 +52,7 @@ export const App: React.FC = () => {
       extrasPrice: 0,
     } as FormValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: () => {},
   });
 
   const pricePer1MoneyPizza1 = getPricePer1Money(values.pizza1Diameter, values.pizza1Price);
@@ -96,20 +92,7 @@ export const App: React.FC = () => {
         <InputPizzaPrice {...getSharedProps("extrasPrice")} />
       </main>
 
-      <footer>
-        <p>
-          By
-          <a href="https://twitter.com/PetrHurtak">
-            <AiFillTwitterCircle size={18} /> PetrHurtak
-          </a>
-        </p>
-        <p>
-          Code on
-          <a href="https://github.com/hurtak/pizza-man">
-            <GoMarkGithub size={18} /> GitHub
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </>
   );
 };

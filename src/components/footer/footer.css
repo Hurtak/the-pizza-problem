@@ -1,0 +1,25 @@
+footer {
+  border-top: 1.5px solid #4a4a4a;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+
+footer p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+footer p + p {
+  margin-top: 0.25rem;
+}
+
+footer p svg {
+  margin: 0 0.15rem 0 0.3rem;
+}
+
+footer p a {
+  display: flex;
+  align-items: center;
+}
