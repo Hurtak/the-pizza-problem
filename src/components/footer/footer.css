@@ -1,7 +1,7 @@
 footer {
   border-top: 1.5px solid #4a4a4a;
-  margin-top: 2rem;
-  padding-top: 1rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
 }
 
 footer p {
@@ -16,7 +16,7 @@ footer p + p {
 }
 
 footer p svg {
-  margin: 0 0.15rem 0 0.3rem;
+  margin: 0 0.3rem 0 0.5rem;
 }
 
 footer p a {
