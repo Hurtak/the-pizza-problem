@@ -9,3 +9,7 @@
   - show error messages
   - decide on layout
   - maybe more header text?
+  - rename to the pizza problem
+  - post
+    - twitter
+    - hn
