@@ -30,8 +30,10 @@ export const getPercentage = ({
 }): number => {
   const getAreaOfCircle = (diameter: number): number => Math.PI * (diameter / 2) ** 2;
 
-  const primaryPricePerOneMoney = getAreaOfCircle(primary.diameter) / (primary.price + extrasPrice);
-  const secondaryPricePerOneMoney = getAreaOfCircle(secondary.diameter) / (secondary.price + extrasPrice);
+  const primaryPricePerCm2 = (primary.price + extrasPrice) / getAreaOfCircle(primary.diameter);
+  const secondaryPricePerCm2 = (secondary.price + extrasPrice) / getAreaOfCircle(secondary.diameter);
 
-  return (secondaryPricePerOneMoney - primaryPricePerOneMoney) / Math.abs(primaryPricePerOneMoney);
+  const direction = primaryPricePerCm2 > secondaryPricePerCm2 ? 1 : -1;
+
+  return (Math.abs(secondaryPricePerCm2 - primaryPricePerCm2) / secondaryPricePerCm2) * direction;
 };
