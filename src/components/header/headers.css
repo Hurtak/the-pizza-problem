@@ -4,6 +4,10 @@ header {
   align-items: center;
 }
 
+header h1 {
+  margin-top: 0;
+}
+
 header img {
   margin: 0;
   display: block;

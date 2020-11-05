@@ -3,7 +3,7 @@ import { GoMarkGithub } from "react-icons/go";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import "./footer.css";
 
-export const Footer: React.FC<{}> = () => (
+export const Footer: React.FC = () => (
   <footer>
     <p>
       By
