@@ -4,11 +4,9 @@
 
 ## TODO
 
-- icons
+- rename to the pizza problem
 - decide on layout
 - maybe more header text?
-- maybe get rid of extras?
-- rename to the pizza problem
 - post
   - twitter
   - hn
