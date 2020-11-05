@@ -20,6 +20,10 @@ footer p svg {
 }
 
 footer p a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+}
+
+footer p a:hover {
+  border: none;
 }
