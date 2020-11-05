@@ -2,7 +2,7 @@ import * as React from "react";
 import "./result.css";
 
 export const Result: React.FC<{ percentage: number }> = ({ percentage }) => {
-  const resultClass = percentage < 0 ? "result-negative" : percentage > 0 ? "result-positive" : "result-neutral";
+  const resultClass = percentage < 0 ? "result-positive" : percentage > 0 ? "result-negative" : "result-neutral";
   const percentageFormatted = Math.abs(percentage * 100).toFixed(0);
 
   return (
