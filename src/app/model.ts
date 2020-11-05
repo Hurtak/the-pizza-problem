@@ -1,7 +1,7 @@
 export const model = {
   pizzaDiameter: {
-    min: 10,
-    max: 100,
+    min: 1,
+    max: 1000,
   },
   pizzaPrice: {
     min: 1,

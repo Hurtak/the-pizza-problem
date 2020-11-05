@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape<FormValues>({
   pizza1Diameter: Yup.number()
     .min(model.pizzaDiameter.min, `Minimum ${model.pizzaDiameter.min}`)
     .max(model.pizzaDiameter.max, `Maximum ${model.pizzaDiameter.max}`)
-    .integer("Needs to be whole number")
+    .integer("Whole number required")
     .required("Required"),
   pizza1Price: Yup.number()
     .min(model.pizzaPrice.min, `Minimum ${model.pizzaPrice.min}`)
@@ -39,7 +39,7 @@ const validationSchema = Yup.object().shape<FormValues>({
   pizza2Diameter: Yup.number()
     .min(model.pizzaDiameter.min, `Minimum ${model.pizzaDiameter.min}`)
     .max(model.pizzaDiameter.max, `Maximum ${model.pizzaDiameter.max}`)
-    .integer("Needs to be whole number")
+    .integer("Whole number required")
     .required("Required"),
   pizza2Price: Yup.number()
     .min(model.pizzaPrice.min, `Minimum ${model.pizzaPrice.min}`)
@@ -52,23 +52,35 @@ const validationSchema = Yup.object().shape<FormValues>({
     .required("Required"),
 });
 
+const getPercentageData = (values: FormValues, firstPizzaPrimary: boolean): number => {
+  const pizza1 = { diameter: values.pizza1Diameter, price: values.pizza1Price };
+  const pizza2 = { diameter: values.pizza2Diameter, price: values.pizza2Price };
+
+  return getPercentage({
+    primary: firstPizzaPrimary ? pizza1 : pizza2,
+    secondary: firstPizzaPrimary ? pizza2 : pizza1,
+    extrasPrice: values.extrasPrice,
+  });
+};
+
 export const App: React.FC = () => {
-  const { values, errors, handleChange } = useFormik({
+  const form = useFormik({
     initialValues: initialFormValues,
     validationSchema,
     onSubmit: () => {},
   });
+  const { values, errors, isValid, handleChange } = form;
 
-  const pizza1percentage = getPercentage({
-    primary: { diameter: values.pizza1Diameter, price: values.pizza1Price },
-    secondary: { diameter: values.pizza2Diameter, price: values.pizza2Price },
-    extrasPrice: values.extrasPrice,
-  });
-  const pizza2percentage = getPercentage({
-    primary: { diameter: values.pizza2Diameter, price: values.pizza2Price },
-    secondary: { diameter: values.pizza1Diameter, price: values.pizza1Price },
-    extrasPrice: values.extrasPrice,
-  });
+  const [lastValidValues, setLastValidValues] = React.useState<FormValues>(initialFormValues);
+
+  React.useEffect(() => {
+    // When fields change, on first render the "values" are updated, on second render the "isValid"
+    // is updated. There does not seem to be a nice way to get the last valid values,
+    // thats why we run the validation manually here, even when the formik also runs validation
+    if (isValid && validationSchema.isValidSync(values)) {
+      setLastValidValues(values);
+    }
+  }, [values, isValid]);
 
   const getSharedProps = (name: keyof FormValues) => ({
     name,
@@ -76,6 +88,9 @@ export const App: React.FC = () => {
     error: errors[name],
     onChange: handleChange,
   });
+
+  const pizza1percentage = getPercentageData(lastValidValues, true);
+  const pizza2percentage = getPercentageData(lastValidValues, false);
 
   return (
     <>
