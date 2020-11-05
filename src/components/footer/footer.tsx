@@ -13,7 +13,7 @@ export const Footer: React.FC<{}> = () => (
     </p>
     <p>
       Code on
-      <a href="https://github.com/hurtak/pizza-man">
+      <a href="https://github.com/hurtak/the-pizza-problem">
         <GoMarkGithub size={16} className="github" /> GitHub
       </a>
     </p>

@@ -1,6 +1,6 @@
-# PIZZA MAN
+# The Pizza Problem
 
-- https://pizza-man.netlify.app/
+- https://the-pizza-problem.netlify.app/
 
 ## TODO
 
