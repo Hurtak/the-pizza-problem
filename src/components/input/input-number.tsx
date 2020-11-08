@@ -1,6 +1,7 @@
 import * as React from "react";
 
 export const InputNumber: React.FC<{
+  id?: string;
   value: number;
   name: string;
   error?: string;
@@ -13,6 +14,7 @@ export const InputNumber: React.FC<{
     //
     type="number"
     className={error && "input-error"}
+    style={{ width: "100%" }}
     {...restProps}
   />
 );

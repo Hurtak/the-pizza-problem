@@ -8,14 +8,16 @@ export const InputPizzaDiameter: React.FC<{
   error?: string;
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = (props) => (
-  <label>
-    Diameter{" "}
+  <React.Fragment>
+    <label htmlFor={props.name}>Diameter</label>
+
     <InputNumber
       //
       {...props}
+      id={props.name}
       min={model.pizzaDiameter.min}
       max={model.pizzaDiameter.max}
       step={1}
     />
-  </label>
+  </React.Fragment>
 );

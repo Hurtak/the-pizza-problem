@@ -49,19 +49,29 @@ export const App: React.FC = () => {
       <Header />
 
       <main>
-        <h2>Pizza 1</h2>
-        <InputPizzaDiameter {...getSharedProps("pizza1Diameter")} />
-        <InputPizzaPrice {...getSharedProps("pizza1Price")} />
+        <div style={{ display: "flex", flexDirection: "row", gap: 16 }}>
+          <section style={{ flexBasis: "100%" }}>
+            <h2 style={{ textAlign: "center" }}>Pizza 1</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "min-content 1fr", gridColumnGap: 8 }}>
+              <InputPizzaDiameter {...getSharedProps("pizza1Diameter")} />
+              <InputPizzaPrice {...getSharedProps("pizza1Price")} />
+            </div>
 
-        <Result percentage={pizza1percentage} />
+            <Result percentage={pizza1percentage} />
+          </section>
 
-        <h2>Pizza 2</h2>
-        <InputPizzaDiameter {...getSharedProps("pizza2Diameter")} />
-        <InputPizzaPrice {...getSharedProps("pizza2Price")} />
+          <section style={{ flexBasis: "100%" }}>
+            <h2 style={{ textAlign: "center" }}>Pizza 2</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "min-content 1fr", gridColumnGap: 8 }}>
+              <InputPizzaDiameter {...getSharedProps("pizza2Diameter")} />
+              <InputPizzaPrice {...getSharedProps("pizza2Price")} />
+            </div>
 
-        <Result percentage={pizza2percentage} />
+            <Result percentage={pizza2percentage} />
+          </section>
+        </div>
 
-        <h2>Extras (box, delivery...)</h2>
+        <h2 style={{ fontSize: "1.4rem", marginTop: 0 }}>Extras like box or delivery</h2>
         <InputPizzaPrice {...getSharedProps("extrasPrice")} />
       </main>
 

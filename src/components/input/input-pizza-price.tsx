@@ -9,14 +9,16 @@ export const InputPizzaPrice: React.FC<{
 
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = (props) => (
-  <label>
-    Price{" "}
+  <React.Fragment>
+    <label htmlFor={props.name}>Price</label>
+
     <InputNumber
       //
       {...props}
+      id={props.name}
       min={model.pizzaPrice.min}
       max={model.pizzaPrice.max}
       step={1}
     />
-  </label>
+  </React.Fragment>
 );
