@@ -1,5 +1,5 @@
 import * as React from "react";
-import { model } from "../../app/model";
+import { model } from "../../app/app.model";
 import { InputNumber } from "./input-number";
 
 export const InputPizzaPrice: React.FC<{

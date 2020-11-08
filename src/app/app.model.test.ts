@@ -1,4 +1,4 @@
-import { getPercentage } from "./model";
+import { getPercentage } from "./app.model";
 
 describe("getPercentage", () => {
   it("returns correct percentage comparison", () => {

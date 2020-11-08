@@ -1,56 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import { Header, Result, Footer, InputPizzaDiameter, InputPizzaPrice } from "../components";
-import { getPercentage, model } from "./model";
-
-type FormValues = {
-  pizza1Diameter: number;
-  pizza1Price: number;
-
-  pizza2Diameter: number;
-  pizza2Price: number;
-
-  extrasPrice: number;
-};
-
-const initialFormValues = {
-  pizza1Diameter: 33,
-  pizza2Diameter: 45,
-
-  pizza1Price: 149,
-  pizza2Price: 239,
-
-  extrasPrice: 0,
-} as FormValues;
-
-const validationSchema = Yup.object().shape<FormValues>({
-  pizza1Diameter: Yup.number()
-    .min(model.pizzaDiameter.min, `Minimum ${model.pizzaDiameter.min}`)
-    .max(model.pizzaDiameter.max, `Maximum ${model.pizzaDiameter.max}`)
-    .integer("Whole number required")
-    .required("Required"),
-  pizza1Price: Yup.number()
-    .min(model.pizzaPrice.min, `Minimum ${model.pizzaPrice.min}`)
-    .max(model.pizzaPrice.max, `Maximum ${model.pizzaPrice.max}`)
-    .required("Required"),
-
-  pizza2Diameter: Yup.number()
-    .min(model.pizzaDiameter.min, `Minimum ${model.pizzaDiameter.min}`)
-    .max(model.pizzaDiameter.max, `Maximum ${model.pizzaDiameter.max}`)
-    .integer("Whole number required")
-    .required("Required"),
-  pizza2Price: Yup.number()
-    .min(model.pizzaPrice.min, `Minimum ${model.pizzaPrice.min}`)
-    .max(model.pizzaPrice.max, `Maximum ${model.pizzaPrice.max}`)
-    .required("Required"),
-
-  extrasPrice: Yup.number()
-    .min(model.extrasPrice.min, `Minimum ${model.extrasPrice.min}`)
-    .max(model.extrasPrice.max, `Maximum ${model.extrasPrice.max}`)
-    .required("Required"),
-});
+import { getPercentage, validationSchema, initialFormValues, FormValues } from "./app.model";
 
 const getPercentageData = (values: FormValues, firstPizzaPrimary: boolean): number => {
   const pizza1 = { diameter: values.pizza1Diameter, price: values.pizza1Price };
