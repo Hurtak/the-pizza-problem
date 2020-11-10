@@ -10,6 +10,7 @@ const sharedStyles = {
   margin: 0,
   fontWeight: 400,
   fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`,
+  color: "#4a4a4a",
 };
 
 const PageTitleStyled = styled.h1({
