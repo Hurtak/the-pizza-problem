@@ -1,7 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import icon from "./pizza.svg";
-import { Text } from "../index";
+import { Text, Spacer } from "../index";
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -21,6 +21,7 @@ export const Header: React.FC = () => (
   <HeaderStyled>
     <Image src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
     <Text type="pageTitle">The Pizza Problem</Text>
+    <Spacer size={1} />
     <p>
       Finally, we have an answer to the problem that has bothered humanity since the beginning of time… should you buy
       the standard pizza or the big one?
