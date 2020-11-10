@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { GoMarkGithub } from "react-icons/go";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { Link, Spacer, Text } from "../index";
+import { Link, Spacer, Text } from "..";
 import * as s from "../../styles";
 
 const FooterStyled = styled.footer({

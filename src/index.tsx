@@ -4,6 +4,5 @@ import { App } from "./app/app";
 
 import "normalize.css";
 import "sakura.css";
-import "./styles.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));

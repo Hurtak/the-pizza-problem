@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import * as s from "../styles";
+import * as s from "../../styles";
 
 export const Link = styled.a({
   display: "inline-flex",
