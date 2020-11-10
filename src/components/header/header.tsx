@@ -22,9 +22,9 @@ export const Header: React.FC = () => (
     <Image src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
     <Text type="pageTitle">The Pizza Problem</Text>
     <Spacer size={1} />
-    <p>
+    <Text>
       Finally, we have an answer to the problem that has bothered humanity since the beginning of time… should you buy
       the standard pizza or the big one?
-    </p>
+    </Text>
   </HeaderStyled>
 );
