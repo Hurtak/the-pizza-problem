@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components/macro";
+import * as s from "../../styles";
 
 const breakPoints = {
   tablet: "@media (min-width: 382px)",
@@ -10,31 +11,31 @@ const sharedStyles = {
   margin: 0,
   fontWeight: 400,
   fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`,
-  color: "#4a4a4a",
+  color: s.colors.gray2,
 };
 
 const PageTitleStyled = styled.h1({
   ...sharedStyles,
   fontWeight: 700,
 
-  fontSize: 32,
+  fontSize: s.size(32),
   [breakPoints.tablet]: {
-    fontSize: 36,
+    fontSize: s.size(36),
   },
   [breakPoints.desktop]: {
-    fontSize: 42,
+    fontSize: s.size(42),
   },
 });
 
 const TextStyled = styled.p({
   ...sharedStyles,
 
-  fontSize: 13,
+  fontSize: s.size(13),
   [breakPoints.tablet]: {
-    fontSize: 15,
+    fontSize: s.size(15),
   },
   [breakPoints.desktop]: {
-    fontSize: 18,
+    fontSize: s.size(18),
   },
 });
 
