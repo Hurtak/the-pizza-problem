@@ -1,5 +1,19 @@
 import * as React from "react";
-import "./styles.css";
+import styled from "styled-components/macro";
+import * as s from "../../styles";
+
+const Input = styled.input((props: { error: boolean }) => ({
+  width: "100%",
+
+  ":focus": {
+    border: `${s.size(1)} solid ${s.colors.blue1} !important`,
+  },
+
+  ...(props.error && {
+    border: `${s.size(1)} solid ${s.colors.red1} !important`,
+    boxShadow: `0 0 0 ${s.size(1)} ${s.colors.red1} !important`,
+  }),
+}));
 
 export const InputNumber: React.FC<{
   id?: string;
@@ -11,11 +25,10 @@ export const InputNumber: React.FC<{
   step: number;
   onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 }> = ({ error, ...restProps }) => (
-  <input
+  <Input
     //
     type="number"
-    className={error && "input-error"}
-    style={{ width: "100%" }}
+    error={Boolean(error)}
     {...restProps}
   />
 );

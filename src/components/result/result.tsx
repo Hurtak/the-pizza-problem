@@ -12,7 +12,7 @@ const resultTypeToColor = (type: ResultType): Color => {
     case "NEGATIVE":
       return s.colors.red1;
     case "NEUTRAL":
-      return s.colors.blue2;
+      return s.colors.blue1;
   }
 };
 

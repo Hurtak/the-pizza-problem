@@ -1,8 +1,0 @@
-input:focus.input-error {
-  border: 1px solid red;
-}
-
-input.input-error {
-  border: 1px solid red;
-  box-shadow: 0 0 2px 0.5px red;
-}

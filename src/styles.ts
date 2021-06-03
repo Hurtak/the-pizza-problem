@@ -11,13 +11,12 @@ export const gridNumber = (grid: number): number => grid * gridMultiple;
 export type Color = React.CSSProperties["color"];
 
 export const colors: { [key: string]: Color } = {
-  green1: "green",
+  red: "#e10909",
+  redDark: "#982c61",
 
-  blue1: "#2c8898",
-  blue2: "blue",
+  green: "#2c984e",
 
-  red1: "red",
-  darkRed1: "#982c61",
+  blue: "#2c8898",
 
   gray1: "#e6e6e6",
   gray2: "#4a4a4a",

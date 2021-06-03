@@ -5,10 +5,6 @@
 
 ## TODO
 
-- convert to styled components
-- get rid of Sakura
-- some kind of grid/spacing/rem functions
-- decide on layout
 - post
   - twitter
   - hn
