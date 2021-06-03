@@ -26,11 +26,11 @@ export type FormValues = {
 };
 
 export const initialFormValues = {
-  pizza1Diameter: 33,
-  pizza2Diameter: 45,
+  pizza1Diameter: 32,
+  pizza2Diameter: 40,
 
-  pizza1Price: 149,
-  pizza2Price: 239,
+  pizza1Price: 220,
+  pizza2Price: 280,
 
   extrasPrice: 0,
 } as FormValues;
