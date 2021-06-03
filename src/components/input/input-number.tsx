@@ -6,12 +6,12 @@ const Input = styled.input((props: { error: boolean }) => ({
   width: "100%",
 
   ":focus": {
-    border: `${s.size(1)} solid ${s.colors.blue1} !important`,
+    border: `${s.size(1)} solid ${s.colors.blue} !important`,
   },
 
   ...(props.error && {
-    border: `${s.size(1)} solid ${s.colors.red1} !important`,
-    boxShadow: `0 0 0 ${s.size(1)} ${s.colors.red1} !important`,
+    border: `${s.size(1)} solid ${s.colors.red} !important`,
+    boxShadow: `0 0 0 ${s.size(1)} ${s.colors.red} !important`,
   }),
 }));
 

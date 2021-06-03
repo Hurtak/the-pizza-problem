@@ -8,11 +8,11 @@ type ResultType = "POSITIVE" | "NEGATIVE" | "NEUTRAL";
 const resultTypeToColor = (type: ResultType): Color => {
   switch (type) {
     case "POSITIVE":
-      return s.colors.green1;
+      return s.colors.green;
     case "NEGATIVE":
-      return s.colors.red1;
+      return s.colors.red;
     case "NEUTRAL":
-      return s.colors.blue1;
+      return s.colors.blue;
   }
 };
 

@@ -16,7 +16,7 @@ const TextWithIconStyled = styled.span({
   alignItems: "center",
 });
 
-const FooterTextStyled = styled.div({
+const FooterTextLayoutStyled = styled.span({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -34,7 +34,7 @@ const IconLink: React.FC<{ href: string; icon: React.ReactNode; children: string
 
 const FooterText: React.FC = (props) => (
   <Text>
-    <FooterTextStyled>{props.children}</FooterTextStyled>
+    <FooterTextLayoutStyled>{props.children}</FooterTextLayoutStyled>
   </Text>
 );
 

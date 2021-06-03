@@ -4,7 +4,7 @@ import * as s from "../../styles";
 
 type Orientation = "vertical" | "horizontal";
 
-const SpacerStyled = styled.div<{
+const SpacerStyled = styled.span<{
   spacerSize: number;
   orientation: Orientation;
 }>(({ spacerSize, orientation }) => ({
