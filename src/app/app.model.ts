@@ -25,7 +25,7 @@ export type FormValues = {
   extrasPrice: number;
 };
 
-export const initialFormValues = {
+export const initialFormValues: FormValues = {
   pizza1Diameter: 32,
   pizza2Diameter: 40,
 
@@ -33,7 +33,7 @@ export const initialFormValues = {
   pizza2Price: 280,
 
   extrasPrice: 0,
-} as FormValues;
+} as const;
 
 export const validationSchema = Yup.object().shape<FormValues>({
   pizza1Diameter: Yup.number()
