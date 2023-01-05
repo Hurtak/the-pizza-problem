@@ -1,4 +1,4 @@
-import * as React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components/macro";
 import { GoMarkGithub } from "react-icons/go";
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -22,7 +22,7 @@ const FooterTextLayoutStyled = styled.span({
   justifyContent: "center",
 });
 
-const IconLink: React.FC<{ href: string; icon: React.ReactNode; children: string }> = ({ href, icon, children }) => (
+const IconLink = ({ href, icon, children }: { href: string; icon: ReactNode; children: string }) => (
   <Link href={href}>
     <TextWithIconStyled>
       {icon}
@@ -32,13 +32,13 @@ const IconLink: React.FC<{ href: string; icon: React.ReactNode; children: string
   </Link>
 );
 
-const FooterText: React.FC = (props) => (
+const FooterText = (props: { children: ReactNode }) => (
   <Text>
     <FooterTextLayoutStyled>{props.children}</FooterTextLayoutStyled>
   </Text>
 );
 
-export const Footer: React.FC = () => (
+export const Footer = () => (
   <FooterStyled>
     <FooterText>
       By

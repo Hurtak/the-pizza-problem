@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 
 import { Header, Result, Footer, InputPizzaDiameter, InputPizzaPrice } from "../components";
@@ -15,7 +15,7 @@ const getPercentageData = (values: FormValues, firstPizzaPrimary: boolean): numb
   });
 };
 
-export const App: React.FC = () => {
+export const App = () => {
   const form = useFormik({
     initialValues: initialFormValues,
     validationSchema,
@@ -23,9 +23,9 @@ export const App: React.FC = () => {
   });
   const { values, errors, isValid, handleChange } = form;
 
-  const [lastValidValues, setLastValidValues] = React.useState<FormValues>(initialFormValues);
+  const [lastValidValues, setLastValidValues] = useState<FormValues>(initialFormValues);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // When fields change, on first render the "values" are updated, on second render the "isValid"
     // is updated. There does not seem to be a nice way to get the last valid values,
     // thats why we run the validation manually here, even when the formik also runs validation

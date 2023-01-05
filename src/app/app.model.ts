@@ -35,7 +35,7 @@ export const initialFormValues: FormValues = {
   extrasPrice: 0,
 } as const;
 
-export const validationSchema = Yup.object().shape<FormValues>({
+export const validationSchema = Yup.object().shape({
   pizza1Diameter: Yup.number()
     .min(model.pizzaDiameter.min, `Minimum ${model.pizzaDiameter.min}`)
     .max(model.pizzaDiameter.max, `Maximum ${model.pizzaDiameter.max}`)

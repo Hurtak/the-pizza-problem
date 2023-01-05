@@ -1,4 +1,4 @@
-import * as React from "react";
+import { InputHTMLAttributes } from "react";
 import styled from "styled-components/macro";
 import * as s from "../../styles";
 
@@ -19,7 +19,10 @@ const Input = styled.input((props: { error: boolean }) => ({
   }),
 }));
 
-export const InputNumber: React.FC<{
+export const InputNumber = ({
+  error,
+  ...restProps
+}: {
   id?: string;
   value: number;
   name: string;
@@ -27,8 +30,8 @@ export const InputNumber: React.FC<{
   min: number;
   max: number;
   step: number;
-  onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
-}> = ({ error, ...restProps }) => (
+  onChange: InputHTMLAttributes<HTMLInputElement>["onChange"];
+}) => (
   <Input
     //
     type="number"

@@ -1,4 +1,4 @@
-import React from "react";
+import { CSSProperties } from "react";
 
 const gridMultiple = 8;
 
@@ -8,7 +8,7 @@ export const sizeNumber = (px: number): number => px;
 export const grid = (grid: number): string => size(gridNumber(grid));
 export const gridNumber = (grid: number): number => grid * gridMultiple;
 
-export type Color = React.CSSProperties["color"];
+export type Color = CSSProperties["color"];
 
 export const colors: { [key: string]: Color } = {
   red: "#e10909",

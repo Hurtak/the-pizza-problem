@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "styled-components/macro";
 import * as s from "../../styles";
 
@@ -13,6 +12,6 @@ const SpacerStyled = styled.span<{
   height: orientation === "vertical" ? s.grid(spacerSize) : "100%",
 }));
 
-export const Spacer: React.FC<{ size: number; orientation?: Orientation }> = ({ size, orientation = "vertical" }) => (
+export const Spacer = ({ size, orientation = "vertical" }: { size: number; orientation?: Orientation }) => (
   <SpacerStyled spacerSize={size} orientation={orientation} />
 );

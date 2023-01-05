@@ -1,4 +1,4 @@
-import * as React from "react";
+import { ReactNode } from "react";
 import styled from "styled-components/macro";
 import * as s from "../../styles";
 
@@ -51,9 +51,7 @@ const textTypeToElement = (textType: TextType) => {
   }
 };
 
-export const Text: React.FC<{
-  type?: TextType;
-}> = ({ type = "text", children }) => {
+export const Text = ({ type = "text", children }: { type?: TextType; children: ReactNode }) => {
   const Component = textTypeToElement(type);
 
   return <Component>{children}</Component>;

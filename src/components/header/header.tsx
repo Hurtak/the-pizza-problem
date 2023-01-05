@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "styled-components/macro";
 import icon from "./pizza.svg";
 import { Text, Spacer } from "../index";
@@ -17,7 +16,7 @@ const Image = styled.img`
   height: ${imageSize}px;
 `;
 
-export const Header: React.FC = () => (
+export const Header = () => (
   <HeaderStyled>
     <Image src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
     <Text type="pageTitle">The Pizza Problem</Text>

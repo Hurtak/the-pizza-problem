@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "styled-components/macro";
 import * as s from "../../styles";
 import { Color } from "../../styles";
@@ -20,7 +19,7 @@ const ResultStyled = styled.p((props: { type: ResultType }) => ({
   color: resultTypeToColor(props.type),
 }));
 
-export const Result: React.FC<{ percentage: number }> = ({ percentage }) => {
+export const Result = ({ percentage }: { percentage: number }) => {
   const type: ResultType = percentage < 0 ? "POSITIVE" : percentage > 0 ? "NEGATIVE" : "NEUTRAL";
 
   const percentageFormatted = Math.abs(percentage * 100).toFixed(0);

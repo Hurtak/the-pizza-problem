@@ -1,15 +1,15 @@
-import * as React from "react";
+import { InputHTMLAttributes } from "react";
 import { model } from "../../app/app.model";
 import { InputNumber } from "./input-number";
 
-export const InputPizzaPrice: React.FC<{
+export const InputPizzaPrice = (props: {
   value: number;
   name: string;
   error?: string;
 
-  onChange: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
-}> = (props) => (
-  <React.Fragment>
+  onChange: InputHTMLAttributes<HTMLInputElement>["onChange"];
+}) => (
+  <>
     <label htmlFor={props.name}>Price</label>
 
     <InputNumber
@@ -20,5 +20,5 @@ export const InputPizzaPrice: React.FC<{
       max={model.pizzaPrice.max}
       step={1}
     />
-  </React.Fragment>
+  </>
 );
