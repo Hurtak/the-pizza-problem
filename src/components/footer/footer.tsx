@@ -6,6 +6,9 @@ import { Link, Spacer, Text } from "..";
 import * as s from "../../styles";
 
 const FooterStyled = styled.footer({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   borderTop: `${s.size(2)} solid ${s.colors.gray1}`,
   marginTop: s.grid(6),
   paddingTop: s.grid(2),
@@ -17,9 +20,9 @@ const TextWithIconStyled = styled.span({
 });
 
 const FooterTextLayoutStyled = styled.span({
-  display: "flex",
+  display: "inline-flex",
+  flexDirection: "row",
   alignItems: "center",
-  justifyContent: "center",
 });
 
 const IconLink = ({ href, icon, children }: { href: string; icon: ReactNode; children: string }) => (
@@ -41,7 +44,7 @@ const FooterText = (props: { children: ReactNode }) => (
 export const Footer = () => (
   <FooterStyled>
     <FooterText>
-      By
+      From
       <Spacer orientation="horizontal" size={0.5} />
       <IconLink href="https://twitter.com/PetrHurtak" icon={<AiFillTwitterCircle size={18} />}>
         PetrHurtak
