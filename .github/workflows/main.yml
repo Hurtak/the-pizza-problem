@@ -1,0 +1,50 @@
+name: Main workflow
+
+on:
+  - push
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - run: npm ci
+      - run: npm run validate
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - run: npm ci --production
+      - run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: artifact-dist
+          path: dist
+  deploy:
+    needs: [validate, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: artifact-dist
+          path: dist
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          publish-dir: dist
+          production-branch: main
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          overwrites-pull-request-comment: false
+          deploy-message: Deploy from GitHub Actions
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
