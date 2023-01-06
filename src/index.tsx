@@ -1,8 +1,13 @@
 import "normalize.css";
 import "sakura.css";
 
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import { App } from "./app/app";
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const rootEl = document.querySelector("#root");
+if (rootEl) {
+  createRoot(rootEl).render(<App />);
+} else {
+  throw new Error("Missing app root element");
+}
