@@ -24,20 +24,20 @@ jobs:
       - run: npm run build
       - uses: actions/upload-artifact@v3
         with:
-          name: artifact-dist
-          path: dist
+          name: artifact-build
+          path: build
   deploy:
     needs: [validate, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: artifact-dist
-          path: dist
+          name: artifact-build
+          path: build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
-          publish-dir: dist
+          publish-dir: build
           production-branch: main
           enable-pull-request-comment: false
           enable-commit-comment: false
