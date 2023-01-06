@@ -20,7 +20,7 @@ const Image = styled.img`
 export const Header = () => (
   <HeaderStyled>
     <Image src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
-    <Text type="pageTitle">The Pizza Problem</Text>
+    <Text type="pageTitle">The Pizza Problem xxx</Text>
     <Spacer size={1} />
     <Text>
       Finally, we have an answer to the problem that has bothered humanity since the beginning of time… should you buy
