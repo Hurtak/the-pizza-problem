@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
+
+import { Spacer,Text } from "../index";
 import icon from "./pizza.svg";
-import { Text, Spacer } from "../index";
 
 const HeaderStyled = styled.header`
   display: flex;

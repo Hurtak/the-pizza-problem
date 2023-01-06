@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components/macro";
+
 import * as s from "../../styles";
 
 const Input = styled.input((props: { error: boolean }) => ({

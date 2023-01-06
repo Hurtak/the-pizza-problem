@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components/macro";
+
 import * as s from "../../styles";
 
 const breakPoints = {
@@ -46,7 +47,8 @@ const textTypeToElement = (textType: TextType) => {
     case "pageTitle":
       return PageTitleStyled;
     case "text":
-    default:
+    case "headingSmall":
+    case "heading":
       return TextStyled;
   }
 };

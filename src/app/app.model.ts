@@ -7,11 +7,11 @@ export const model = {
   },
   pizzaPrice: {
     min: 1,
-    max: 1000000,
+    max: 1_000_000,
   },
   extrasPrice: {
     min: 0,
-    max: 1000000,
+    max: 1_000_000,
   },
 };
 

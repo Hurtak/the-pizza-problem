@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
 import { useFormik } from "formik";
+import { useEffect, useState } from "react";
 
-import { Header, Result, Footer, InputPizzaDiameter, InputPizzaPrice } from "../components";
-import { getPercentage, validationSchema, initialFormValues, FormValues } from "./app.model";
+import { Footer, Header, InputPizzaDiameter, InputPizzaPrice, Result } from "../components";
+import { FormValues, getPercentage, initialFormValues, validationSchema } from "./app.model";
 
 const getPercentageData = (values: FormValues, firstPizzaPrimary: boolean): number => {
   const pizza1 = { diameter: values.pizza1Diameter, price: values.pizza1Price };
@@ -19,6 +19,7 @@ export const App = () => {
   const form = useFormik({
     initialValues: initialFormValues,
     validationSchema,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onSubmit: () => {},
   });
   const { values, errors, isValid, handleChange } = form;

@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
-import styled from "styled-components/macro";
-import { GoMarkGithub } from "react-icons/go";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { Link, Spacer, Text } from "..";
+import { GoMarkGithub } from "react-icons/go";
+import styled from "styled-components/macro";
+
 import * as s from "../../styles";
+import { Link, Spacer, Text } from "..";
 
 const FooterStyled = styled.footer({
   display: "flex",
