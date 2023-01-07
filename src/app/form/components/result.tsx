@@ -1,22 +1,21 @@
 import styled from "styled-components/macro";
 
-import * as s from "../../styles";
-import { Color } from "../../styles";
+import { Color, colors } from "../../../components";
 
 type ResultType = "POSITIVE" | "NEGATIVE" | "NEUTRAL";
 
 const resultTypeToColor = (type: ResultType): Color => {
   switch (type) {
     case "POSITIVE":
-      return s.colors.green;
+      return colors.green;
     case "NEGATIVE":
-      return s.colors.red;
+      return colors.red;
     case "NEUTRAL":
-      return s.colors.blue;
+      return colors.blue;
   }
 };
 
-const ResultStyled = styled.p((props: { type: ResultType }) => ({
+const StyledResult = styled.p((props: { type: ResultType }) => ({
   color: resultTypeToColor(props.type),
 }));
 
@@ -26,7 +25,7 @@ export const Result = ({ percentage }: { percentage: number }) => {
   const percentageFormatted = Math.abs(percentage * 100).toFixed(0);
 
   return (
-    <ResultStyled type={type}>
+    <StyledResult type={type}>
       {type === "NEUTRAL" ? (
         <>Price is the same</>
       ) : (
@@ -35,6 +34,6 @@ export const Result = ({ percentage }: { percentage: number }) => {
           <sup>2</sup> of pizza
         </>
       )}
-    </ResultStyled>
+    </StyledResult>
   );
 };

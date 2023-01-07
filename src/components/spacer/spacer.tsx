@@ -1,10 +1,10 @@
 import styled from "styled-components/macro";
 
-import * as s from "../../styles";
+import * as s from "../styles";
 
 type Orientation = "vertical" | "horizontal";
 
-const SpacerStyled = styled.span<{
+const StyledSpacer = styled.span<{
   spacerSize: number;
   orientation: Orientation;
 }>(({ spacerSize, orientation }) => ({
@@ -14,5 +14,5 @@ const SpacerStyled = styled.span<{
 }));
 
 export const Spacer = ({ size, orientation = "vertical" }: { size: number; orientation?: Orientation }) => (
-  <SpacerStyled spacerSize={size} orientation={orientation} />
+  <StyledSpacer spacerSize={size} orientation={orientation} />
 );

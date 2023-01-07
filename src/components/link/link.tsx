@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 import styled from "styled-components/macro";
 
-import * as s from "../../styles";
+import * as s from "../styles";
 
-export const Link = styled.a({
+const StyledLink = styled.a({
   display: "inline-flex",
   color: s.colors.blue,
   ":hover": {
@@ -10,3 +11,7 @@ export const Link = styled.a({
     border: 0,
   },
 });
+
+export const Link = ({ href, children }: { href: string; children: ReactNode }) => (
+  <StyledLink href={href}>{children}</StyledLink>
+);

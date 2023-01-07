@@ -1,24 +1,24 @@
 import { InputHTMLAttributes } from "react";
 
-import { model } from "../../app/app.model";
-import { InputNumber } from "./input-number";
+import { InputNumber } from "../../../components";
 
-export const InputPizzaPrice = (props: {
+export const InputPizzaDiameter = (props: {
   value: number;
   name: string;
+  min: number;
+  max: number;
   error?: string;
-
   onChange: InputHTMLAttributes<HTMLInputElement>["onChange"];
 }) => (
   <>
-    <label htmlFor={props.name}>Price</label>
+    <label htmlFor={props.name}>Diameter</label>
 
     <InputNumber
       //
       {...props}
       id={props.name}
-      min={model.pizzaPrice.min}
-      max={model.pizzaPrice.max}
+      min={props.min}
+      max={props.max}
       step={1}
     />
   </>

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components/macro";
 
-import * as s from "../../styles";
+import * as s from "../styles";
 
 const breakPoints = {
   tablet: "@media (min-width: 382px)",
@@ -15,7 +15,7 @@ const sharedStyles = {
   color: s.colors.gray2,
 };
 
-const PageTitleStyled = styled.h1({
+const StyledPageTitle = styled.h1({
   ...sharedStyles,
   fontWeight: 700,
 
@@ -28,7 +28,7 @@ const PageTitleStyled = styled.h1({
   },
 });
 
-const TextStyled = styled.p({
+const StyledText = styled.p({
   ...sharedStyles,
 
   fontSize: s.size(13),
@@ -45,11 +45,11 @@ type TextType = "pageTitle" | "heading" | "headingSmall" | "text";
 const textTypeToElement = (textType: TextType) => {
   switch (textType) {
     case "pageTitle":
-      return PageTitleStyled;
+      return StyledPageTitle;
     case "text":
     case "headingSmall":
     case "heading":
-      return TextStyled;
+      return StyledText;
   }
 };
 

@@ -3,8 +3,8 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { GoMarkGithub } from "react-icons/go";
 import styled from "styled-components/macro";
 
-import * as s from "../../styles";
-import { Link, Spacer, Text } from "..";
+import { Link, Spacer, Text } from "../../components";
+import * as s from "../../components/styles";
 
 const FooterStyled = styled.footer({
   display: "flex",

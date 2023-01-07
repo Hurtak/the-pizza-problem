@@ -18,4 +18,4 @@ export const colors = {
   gray2: "#4a4a4a",
 } as const;
 
-export type Color = typeof colors[keyof typeof colors];
+export type Color = (typeof colors)[keyof typeof colors];

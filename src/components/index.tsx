@@ -1,8 +1,7 @@
-export * from "./footer/footer";
-export * from "./header/header";
-export * from "./input/input-pizza-diameter";
-export * from "./input/input-pizza-price";
-export * from "./link/link";
-export * from "./result/result";
-export * from "./spacer/spacer";
-export * from "./text/text";
+export { Result } from "../app/form/components/result";
+export { InputNumber } from "./input-number/input-number";
+export { Link } from "./link/link";
+export { Spacer } from "./spacer/spacer";
+export type { Color } from "./styles";
+export { colors, grid, gridNumber, size, sizeNumber } from "./styles";
+export { Text } from "./text/text";
