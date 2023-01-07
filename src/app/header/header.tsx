@@ -1,30 +1,32 @@
 import styled from "styled-components/macro";
 
-import { Spacer, Text } from "../../components";
+import { grid, size, Spacer, Text } from "../../components";
 import icon from "./pizza.svg";
 
-const HeaderStyled = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const imageSize = 150;
-const Image = styled.img`
-  margin: 0;
-  display: block;
-  width: ${imageSize}px;
-  height: ${imageSize}px;
-`;
+
+const StyledHeader = styled.header({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  paddingBottom: grid(3),
+});
+
+const StyledImage = styled.img({
+  margin: 0,
+  display: "block",
+  width: size(imageSize),
+  height: size(imageSize),
+});
 
 export const Header = () => (
-  <HeaderStyled>
-    <Image src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
-    <Text type="pageTitle">The Pizza Problem</Text>
+  <StyledHeader>
+    <StyledImage src={icon} alt="The Pizza Problem" width={imageSize} height={imageSize} />
+    <Text type="heading1">The Pizza Problem</Text>
     <Spacer size={1} />
     <Text>
       Finally, we have an answer to the problem that has bothered humanity since the beginning of time… should you buy
       the standard pizza or the big one?
     </Text>
-  </HeaderStyled>
+  </StyledHeader>
 );

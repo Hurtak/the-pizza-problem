@@ -18,9 +18,10 @@ export const colors = {
   gray2: "#4a4a4a",
 } as const;
 
-export type Color = (typeof colors)[keyof typeof colors];
+export type Color = typeof colors[keyof typeof colors];
 
 export const breakPoints = {
-  tablet: "@media (min-width: 382px)",
-  desktop: "@media (min-width: 684px)",
+  // Synced with sakura.css breakpoints
+  tablet: "@media (min-width: 383px)",
+  desktop: "@media (min-width: 685px)",
 };

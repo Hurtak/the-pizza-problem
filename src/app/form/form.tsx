@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
+import styled from "styled-components/macro";
 
+import { grid, Text } from "../../components";
 import { InputPizzaDiameter } from "./components/input-pizza-diameter";
 import { InputPizzaPrice } from "./components/input-pizza-price";
 import { Result } from "./components/result";
@@ -16,6 +18,34 @@ const getPercentageData = (values: FormValues, firstPizzaPrimary: boolean): numb
     extrasPrice: values.extrasPrice,
   });
 };
+
+const StyledColumns = styled.div({
+  display: "flex",
+  flexDirection: "row",
+  gap: 16,
+});
+
+const StyledColumnsSection = styled.section({
+  flexBasis: "100%",
+});
+
+const StyledColumnsContent = styled.div({
+  display: "grid",
+  gridTemplateColumns: "min-content 1fr",
+  gridColumnGap: 8,
+});
+
+const StyledHeadingPizza = ({ children }: { children: string }) => (
+  <Text type="heading2" style={{ textAlign: "center", paddingBottom: grid(1) }}>
+    {children}
+  </Text>
+);
+
+const StyledHeadingExtras = ({ children }: { children: string }) => (
+  <Text type="heading3" as="h2" style={{ paddingBottom: grid(1) }}>
+    {children}
+  </Text>
+);
 
 export const Form = () => {
   const form = useFormik({
@@ -49,38 +79,40 @@ export const Form = () => {
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "row", gap: 16 }}>
-        <section style={{ flexBasis: "100%" }}>
-          <h2 style={{ textAlign: "center" }}>Pizza 1</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "min-content 1fr", gridColumnGap: 8 }}>
+      <StyledColumns>
+        <StyledColumnsSection>
+          <StyledHeadingPizza>Pizza 1</StyledHeadingPizza>
+          <StyledColumnsContent>
             <InputPizzaDiameter
               min={model.pizzaDiameter.min}
               max={model.pizzaDiameter.max}
               {...getSharedProps("pizza1Diameter")}
             />
             <InputPizzaPrice min={model.pizzaPrice.max} max={model.pizzaPrice.max} {...getSharedProps("pizza1Price")} />
-          </div>
+          </StyledColumnsContent>
 
           <Result percentage={pizza1percentage} />
-        </section>
+        </StyledColumnsSection>
 
-        <section style={{ flexBasis: "100%" }}>
-          <h2 style={{ textAlign: "center" }}>Pizza 2</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "min-content 1fr", gridColumnGap: 8 }}>
+        <StyledColumnsSection>
+          <StyledHeadingPizza>Pizza 2</StyledHeadingPizza>
+          <StyledColumnsContent>
             <InputPizzaDiameter
               min={model.pizzaDiameter.min}
               max={model.pizzaDiameter.max}
               {...getSharedProps("pizza2Diameter")}
             />
             <InputPizzaPrice min={model.pizzaPrice.min} max={model.pizzaPrice.max} {...getSharedProps("pizza2Price")} />
-          </div>
+          </StyledColumnsContent>
 
           <Result percentage={pizza2percentage} />
-        </section>
-      </div>
+        </StyledColumnsSection>
+      </StyledColumns>
 
-      <h2 style={{ fontSize: "1.4rem", marginTop: 0 }}>Extras like box or delivery</h2>
-      <InputPizzaPrice min={model.extrasPrice.min} max={model.extrasPrice.max} {...getSharedProps("extrasPrice")} />
+      <section>
+        <StyledHeadingExtras>Extras like box or delivery</StyledHeadingExtras>
+        <InputPizzaPrice min={model.extrasPrice.min} max={model.extrasPrice.max} {...getSharedProps("extrasPrice")} />
+      </section>
     </>
   );
 };
