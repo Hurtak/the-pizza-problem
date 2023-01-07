@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import styled from "styled-components/macro";
 
-import * as s from "../styles";
+import { colors } from "../styles";
 
 const StyledLink = styled.a({
   display: "inline-flex",
-  color: s.colors.blue,
+  color: colors.blue,
   ":hover": {
-    color: s.colors.redDark,
+    color: colors.redDark,
     border: 0,
   },
 });

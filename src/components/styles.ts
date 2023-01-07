@@ -19,3 +19,8 @@ export const colors = {
 } as const;
 
 export type Color = (typeof colors)[keyof typeof colors];
+
+export const breakPoints = {
+  tablet: "@media (min-width: 382px)",
+  desktop: "@media (min-width: 684px)",
+};

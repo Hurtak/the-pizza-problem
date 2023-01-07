@@ -3,16 +3,19 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { GoMarkGithub } from "react-icons/go";
 import styled from "styled-components/macro";
 
-import { Link, Spacer, Text } from "../../components";
-import * as s from "../../components/styles";
+import { breakPoints, colors, grid, Link, size, Spacer, Text } from "../../components";
 
 const FooterStyled = styled.footer({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  borderTop: `${s.size(2)} solid ${s.colors.gray1}`,
-  marginTop: s.grid(6),
-  paddingTop: s.grid(2),
+  borderTop: `${size(2)} solid ${colors.gray1}`,
+  marginTop: grid(3),
+  paddingTop: grid(2),
+
+  [breakPoints.tablet]: {
+    marginTop: grid(6),
+  },
 });
 
 const TextWithIconStyled = styled.span({
