@@ -3,6 +3,11 @@ name: Main workflow
 on:
   - push
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -22,29 +27,17 @@ jobs:
           node-version: "18"
       - run: npm ci --production
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: artifact-build
           path: build
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: [validate, build]
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: artifact-build
-          path: build
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v2
-        with:
-          publish-dir: build
-          production-branch: main
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-          overwrites-pull-request-comment: false
-          deploy-message: Deploy from GitHub Actions
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

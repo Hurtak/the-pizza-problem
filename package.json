@@ -2,6 +2,7 @@
   "name": "the-pizza-problem",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://hurtak.github.io/the-pizza-problem",
   "dependencies": {
     "@types/jest": "29.2.5",
     "@types/react": "18.0.26",
